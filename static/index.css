@@ -1,15 +1,20 @@
-/* Custom CSS for black theme */
+/* Waffle-Themed CSS */
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #c19a6b; /* Waffle base color */
+  color: #3e2723; /* Dark brown text */
   margin: 0;
   padding: 0;
+  background-image: linear-gradient(45deg, #e5c29f 25%, transparent 25%, transparent 75%, #e5c29f 75%, #e5c29f),
+                    linear-gradient(45deg, #e5c29f 25%, transparent 25%, transparent 75%, #e5c29f 75%, #e5c29f);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
 }
 
 #header {
-  background-color: #000;
+  background-color: #8b5a2b; /* Darker brown */
   padding: 20px;
   text-align: center;
+  border-bottom: 5px solid #5d4037;
 }
 
 #header h1 {
@@ -21,11 +26,6 @@ body {
   text-transform: uppercase;
 }
 
-#header img {
-  width: 20%;
-  height: auto;
-}
-
 #content {
   text-align: center;
   padding: 20px;
@@ -34,11 +34,12 @@ body {
 
 #content h1 {
   font-size: 24px;
-  cursor:pointer;
+  cursor: pointer;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
   margin-bottom: 20px;
+  color: #3e2723;
 }
 
 #searchbar {
@@ -52,66 +53,35 @@ body {
   border-radius: 5px;
   font-size: 16px;
   width: 300px;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-  background-color: #222;
+  box-shadow: 0 0 5px rgba(93, 64, 55, 0.3);
+  background-color: #d7b899;
   text-align: center;
-  color: #fff;
-  cursor:cell;
-}
-
-a{
-  text-decoration: none;
-  color:white;
-  width:50px;
-  height:50px;
-  padding-right: 1px;
-  padding-left: 1px;
-  text-align: center;
-  align-self: center;
+  color: #3e2723;
+  cursor: cell;
 }
 
 .form__input::placeholder {
-  color: #aaa;
+  color: #6d4c41;
   text-align: center;
-}
-
-.form_input:hover{
-  cursor:cell;
 }
 
 .form__input:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-#footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: #99ccff;
-  font-family: 'Open Sans', sans-serif;
-  width: 100%;
-  height:15px;
-  background-color: #000;
-  padding-top: 7.5px;
-  padding-bottom: 10px;
-  text-align: center;
-  color: #fff;
-  font-size: 14px;
+  box-shadow: 0 0 5px rgba(93, 64, 55, 0.5);
 }
 
-#footer p {
-  margin: 0;
+a {
+  text-decoration: none;
+  color: #3e2723;
+  font-weight: bold;
 }
 
 .fa {
   font-size: 24px;
   margin-right: 10px;
-  color: #fff;
+  color: #3e2723;
 }
 
 .fa:hover {
-  color: #aaa;
+  color: #795548;
 }
