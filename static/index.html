@@ -6,12 +6,45 @@
       <link rel="stylesheet" href="index.css">
       <script type="text/javascript" src="//counter.websiteout.net/js/7/10/5/0"></script>
       <link rel="shortcut icon" type="image/jpg" href="~/"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Y7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+      <style>
+         #notification-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #5865F2;
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+         }
+         #notification-bar a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+         }
+         #close-notification {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+         }
+      </style>
    </head>
    <body>
-      <div id="content">
+      <div id="notification-bar">
+         <span>Join our Discord server: <a href="https://discord.gg/BwEnS96ewP" target="_blank">Click here</a></span>
+         <button id="close-notification">X</button>
+      </div>
+      <div id="content" style="margin-top: 50px;">
          <h1>Waffle Proxy</h1>
          <form id="uv-form">
             <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/>
@@ -21,13 +54,12 @@
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
          </div>
-         <div style="margin-top: 20px; text-align: center;">
-            <a href="https://discord.gg/BwEnS96ewP" target="_blank" style="text-decoration: none; color: inherit;">
-               <img src="https://cdn.discordapp.com/icons/discord_icon.png" alt="Discord Logo" style="width: 50px; height: 50px;"/>
-               <p style="font-family: 'Open Sans', sans-serif; font-size: 14px; margin-top: 5px;">Join The Server</p>
-            </a>
-         </div>
       </div>
+      <script>
+         document.getElementById('close-notification').addEventListener('click', function() {
+            document.getElementById('notification-bar').style.display = 'none';
+         });
+      </script>
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
       <script src="register-sw.js" defer></script>
