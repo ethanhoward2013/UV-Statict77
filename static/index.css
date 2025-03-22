@@ -1,23 +1,19 @@
 /* Waffle-Themed CSS */
 body {
-  background-color: #c19a6b; /* Waffle base color */
+  background: linear-gradient(180deg, #f3e0b6 0%, #e5c29f 50%, #8b5a2b 100%); /* Light to dark waffle-themed gradient */
   color: #3e2723; /* Dark brown text */
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif; /* Modern font */
-  background-image: 
-    linear-gradient(45deg, #e5c29f 25%, transparent 25%, transparent 75%, #e5c29f 75%, #e5c29f),
-    linear-gradient(45deg, #e5c29f 25%, transparent 25%, transparent 75%, #e5c29f 75%, #e5c29f);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
+  font-family: 'Montserrat', sans-serif; /* Elegant sans-serif font */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  text-align: center;
 }
 
 #header {
-  background-color: #8b5a2b; /* Darker brown */
+  background-color: rgba(139, 90, 43, 0.9); /* Darker brown with transparency for modern feel */
   padding: 30px;
   text-align: center;
   border-radius: 12px;
@@ -38,7 +34,6 @@ body {
 }
 
 #content {
-  text-align: center;
   padding: 20px;
   margin-top: -10%;
 }
@@ -46,12 +41,12 @@ body {
 #content h1 {
   font-size: 32px;
   cursor: pointer;
-  text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
-  color: #3e2723;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
+  color: #3e2723;
   line-height: 1.4;
   transition: color 0.3s ease;
+  margin-bottom: 30px;
 }
 
 #content h1:hover {
@@ -109,7 +104,6 @@ a:hover {
 }
 
 #footer {
-  text-align: center;
   font-size: 14px;
   margin-top: 50px;
   color: #3e2723;
