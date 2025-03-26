@@ -1,7 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Redirect Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      color: #ffffff;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    a {
+      color: #ffeb3b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .redirect-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
   <script>
     window.onload = function() {
       window.location.href = "/static/"; // Replace with your desired URL
@@ -9,7 +46,9 @@
   </script>
 </head>
 <body>
-  <h1>Redirecting...</h1>
-  <p>If you are not redirected, <a href="/static/">click here</a>.</p>
+  <div class="redirect-box">
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected, <a href="/static/">click here</a>.</p>
+  </div>
 </body>
 </html>
