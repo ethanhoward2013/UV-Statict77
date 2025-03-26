@@ -38,7 +38,7 @@
           </div>
       </div>
 
-      <!-- New Cloak Tab Button -->
+      <!-- Tab Cloak Button -->
       <button class="cloak-btn" id="cloakButton">Cloak Tab</button>
 
       <script src="uv/uv.bundle.js" defer></script>
@@ -48,12 +48,13 @@
       <script src="index.js" defer></script>
       <script src="error.js" defer></script>
 
-      <!-- Cloak Tab JavaScript -->
+      <!-- JavaScript for Tab Cloaking -->
       <script>
          const cloakButton = document.getElementById('cloakButton');
 
          // Add click event to cloak tab
          cloakButton.addEventListener('click', () => {
+            // Change URL in the browser to about:blank
             history.pushState(null, null, 'about:blank');
          });
       </script>
