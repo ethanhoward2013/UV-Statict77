@@ -54,8 +54,8 @@
 
          // Add click event to cloak tab
          cloakButton.addEventListener('click', () => {
-            // Change URL in the browser to about:blank
-            history.pushState(null, null, 'about:blank');
+            // Replace the current URL in the browser address bar with about:blank
+            history.replaceState(null, null, 'about:blank');
          });
       </script>
    </body>
