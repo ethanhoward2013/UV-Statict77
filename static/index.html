@@ -127,11 +127,7 @@
             <button id="close-button" onclick="toggleGamesPopup()">✖</button>
          </div>
          <div id="games-list">
-            <div class="game-item">
-               <span class="game-title">Build Now GG</span>
-               <button class="game-button" onclick="window.location.href='https://heyschoolsmakesuretoblockthisoneteehee1994.vercel.app/static/tiw/hvtrs8%2F-bwind%2Fnmw%2Fge-3.tepcgl%2Carp-'">Play</button>
-            </div>
-            <!-- You can add more games below this line -->
+            <!-- This section is where infinite scrolling functionality will populate game items -->
          </div>
       </div>
 
@@ -140,6 +136,30 @@
             const popup = document.getElementById('games-popup');
             popup.style.display = popup.style.display === 'none' || popup.style.display === '' ? 'block' : 'none';
          }
+
+         // Infinite scrolling logic
+         const gamesList = document.getElementById('games-list');
+
+         function loadGames() {
+            for (let i = 0; i < 10; i++) {
+               const gameItem = document.createElement('div');
+               gameItem.className = 'game-item';
+               gameItem.innerHTML = `
+                  <span class="game-title">Game ${Math.random().toString(36).substring(2, 7)}</span>
+                  <button class="game-button">Play</button>
+               `;
+               gamesList.appendChild(gameItem);
+            }
+         }
+
+         gamesList.addEventListener('scroll', () => {
+            if (gamesList.scrollTop + gamesList.clientHeight >= gamesList.scrollHeight - 5) {
+               loadGames();
+            }
+         });
+
+         // Initial games load
+         loadGames();
       </script>
       <!-- Original Scripts -->
       <script src="uv/uv.bundle.js" defer></script>
