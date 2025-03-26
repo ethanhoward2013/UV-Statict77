@@ -2,32 +2,74 @@
 <html>
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
       <link rel="stylesheet" href="index.css">
-      <script type="text/javascript" src="//counter.websiteout.net/js/7/10/5/0"></script>
       <link rel="shortcut icon" type="image/jpg" href="~/"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+      <!-- PWA Manifest -->
+      <link rel="manifest" href="manifest.json">
+
+      <style>
+         .download-btn {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+         }
+         .download-btn:hover {
+            background-color: #45a049;
+         }
+      </style>
    </head>
    <body>
-       </div>
+      <button class="download-btn" onclick="installPWA()">Install Site</button>
+
       <div id="content">
          <h1>Waffle Proxy</h1>
          <form id="uv-form">
-            <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/> 
+            <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/>
             <input id="uv-address" type="text" placeholder="Search DuckDuckGo or type an URL" class="form__input"/>
-          </form>
-          <div class="desc left-margin"> 
+         </form>
+         <div class="desc left-margin">
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
-          </div>
+         </div>
       </div>
-      <script src="uv/uv.bundle.js" defer></script>
-      <script src="uv/uv.config.js" defer></script>
-      <script src="register-sw.js" defer></script>
-      <script src="search.js" defer></script>
-      <script src="index.js" defer></script>
-      <script src="error.js" defer></script>
+
+      <script>
+         // PWA Installation Script
+         let deferredPrompt;
+         window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+         });
+
+         function installPWA() {
+            if (deferredPrompt) {
+               deferredPrompt.prompt();
+               deferredPrompt.userChoice.then((choiceResult) => {
+                  if (choiceResult.outcome === 'accepted') {
+                     console.log('User accepted the installation');
+                  } else {
+                     console.log('User dismissed the installation');
+                  }
+                  deferredPrompt = null;
+               });
+            } else {
+               alert('Installation prompt is not available.');
+            }
+         }
+      </script>
    </body>
 </html>
