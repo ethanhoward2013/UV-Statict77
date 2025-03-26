@@ -2,11 +2,7 @@
 <html>
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
       <link rel="stylesheet" href="index.css">
-      <script type="text/javascript" src="//counter.websiteout.net/js/7/10/5/0"></script>
-      <link rel="shortcut icon" type="image/jpg" href="~/"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Y7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
       <style>
@@ -28,6 +24,39 @@
          #games-button:hover {
             background-color: #45a049;
          }
+
+         #games-popup {
+            display: none;
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+            font-family: 'Open Sans', sans-serif;
+         }
+
+         .game-item {
+            margin: 10px 0;
+         }
+
+         .game-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+         }
+
+         .game-button:hover {
+            background-color: #45a049;
+         }
       </style>
    </head>
    <body>
@@ -37,17 +66,23 @@
             <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/> 
             <input id="uv-address" type="text" placeholder="Search DuckDuckGo or type an URL" class="form__input"/>
          </form>
-         <div class="desc left-margin"> 
-            <p id="uv-error"></p>
-            <pre id="uv-error-code"></pre>
-         </div>
       </div>
-      <button id="games-button" onclick="window.location.href='https://heyschoolsmakesuretoblockthisoneteehee1994.vercel.app/static/tiw/hvtrs8%2F-bwind%2Fnmw%2Fge-3.tepcgl%2Carp-'">Games</button>
-      <script src="uv/uv.bundle.js" defer></script>
-      <script src="uv/uv.config.js" defer></script>
-      <script src="register-sw.js" defer></script>
-      <script src="search.js" defer></script>
-      <script src="index.js" defer></script>
-      <script src="error.js" defer></script>
+      
+      <button id="games-button" onclick="toggleGamesPopup()">Games</button>
+
+      <div id="games-popup">
+         <h2>Games</h2>
+         <div class="game-item">
+            <button class="game-button" onclick="window.location.href='https://heyschoolsmakesuretoblockthisoneteehee1994.vercel.app/static/tiw/hvtrs8%2F-bwind%2Fnmw%2Fge-3.tepcgl%2Carp-'">Build Now GG</button>
+         </div>
+         <!-- Add more game items here if needed -->
+      </div>
+
+      <script>
+         function toggleGamesPopup() {
+            const popup = document.getElementById('games-popup');
+            popup.style.display = popup.style.display === 'none' || popup.style.display === '' ? 'block' : 'none';
+         }
+      </script>
    </body>
 </html>
