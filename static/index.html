@@ -9,20 +9,139 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+      <style>
+         #games-button {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #0078d7;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+         }
+
+         #games-button:hover {
+            background-color: #0053a5;
+         }
+
+         #games-popup {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -20%);
+            width: 90%;
+            max-width: 600px;
+            height: 60%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+            overflow-y: auto;
+         }
+
+         #games-popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0078d7;
+            color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+         }
+
+         #close-button {
+            background-color: transparent;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+         }
+
+         #close-button:hover {
+            color: #cccccc;
+         }
+
+         #games-list {
+            padding: 20px;
+            box-sizing: border-box;
+         }
+
+         .game-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #e8e8e8;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+         }
+
+         .game-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+         }
+
+         .game-button {
+            background-color: #0078d7;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+         }
+
+         .game-button:hover {
+            background-color: #0053a5;
+         }
+      </style>
    </head>
    <body>
-      </div>
+      <!-- Original Content -->
       <div id="content">
          <h1>Waffle Proxy</h1>
          <form id="uv-form">
             <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/> 
             <input id="uv-address" type="text" placeholder="Search DuckDuckGo or type an URL" class="form__input"/>
-          </form>
-          <div class="desc left-margin"> 
+         </form>
+         <div class="desc left-margin"> 
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
-          </div>
+         </div>
       </div>
+
+      <!-- Added Games Functionality -->
+      <button id="games-button" onclick="toggleGamesPopup()">Games</button>
+
+      <div id="games-popup">
+         <div id="games-popup-header">
+            Games Menu
+            <button id="close-button" onclick="toggleGamesPopup()">✖</button>
+         </div>
+         <div id="games-list">
+            <div class="game-item">
+               <span class="game-title">Build Now GG</span>
+               <button class="game-button" onclick="window.location.href='https://heyschoolsmakesuretoblockthisoneteehee1994.vercel.app/static/tiw/hvtrs8%2F-bwind%2Fnmw%2Fge-3.tepcgl%2Carp-'">Play</button>
+            </div>
+            <!-- You can add more games below this line -->
+         </div>
+      </div>
+
+      <script>
+         function toggleGamesPopup() {
+            const popup = document.getElementById('games-popup');
+            popup.style.display = popup.style.display === 'none' || popup.style.display === '' ? 'block' : 'none';
+         }
+      </script>
+      <!-- Original Scripts -->
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
       <script src="register-sw.js" defer></script>
