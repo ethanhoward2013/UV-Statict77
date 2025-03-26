@@ -9,63 +9,6 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-
-      <!-- Additional styles for Settings feature -->
-      <style>
-         .settings-btn {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-         }
-         .settings-btn:hover {
-            background-color: #45a049;
-         }
-         .settings-menu {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-         }
-         .settings-menu h3 {
-            margin-top: 0;
-         }
-         .theme-btn {
-            display: inline-block;
-            margin: 10px 0;
-            padding: 10px 20px;
-            cursor: pointer;
-            background: #f0f0f0;
-            border: none;
-            border-radius: 5px;
-         }
-         .theme-btn:hover {
-            background: #ddd;
-         }
-         .close-settings {
-            background: #ff4d4d;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-         }
-         .close-settings:hover {
-            background: #ff3333;
-         }
-      </style>
    </head>
    <body>
       <div id="content">
@@ -73,57 +16,17 @@
          <form id="uv-form">
             <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/> 
             <input id="uv-address" type="text" placeholder="Search DuckDuckGo or type an URL" class="form__input"/>
-         </form>
-         <div class="desc left-margin"> 
+          </form>
+          <div class="desc left-margin"> 
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
-         </div>
+          </div>
       </div>
-
-      <!-- Settings Button -->
-      <button class="settings-btn" id="settingsButton">Settings</button>
-
-      <!-- Settings Menu -->
-      <div class="settings-menu" id="settingsMenu">
-         <h3>Settings</h3>
-         <button class="theme-btn" id="lightTheme">Light Theme</button>
-         <button class="theme-btn" id="darkTheme">Dark Theme</button>
-         <button class="close-settings" id="closeSettings">Close</button>
-      </div>
-
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
       <script src="register-sw.js" defer></script>
       <script src="search.js" defer></script>
       <script src="index.js" defer></script>
       <script src="error.js" defer></script>
-
-      <!-- JavaScript for Settings Feature -->
-      <script>
-         const settingsButton = document.getElementById('settingsButton');
-         const settingsMenu = document.getElementById('settingsMenu');
-         const closeSettings = document.getElementById('closeSettings');
-         
-         settingsButton.addEventListener('click', () => {
-            settingsMenu.style.display = 'block';
-         });
-
-         closeSettings.addEventListener('click', () => {
-            settingsMenu.style.display = 'none';
-         });
-
-         const lightTheme = document.getElementById('lightTheme');
-         const darkTheme = document.getElementById('darkTheme');
-
-         lightTheme.addEventListener('click', () => {
-            document.body.style.backgroundColor = '#ffffff';
-            document.body.style.color = '#000000';
-         });
-
-         darkTheme.addEventListener('click', () => {
-            document.body.style.backgroundColor = '#000000';
-            document.body.style.color = '#ffffff';
-         });
-      </script>
    </body>
 </html>
