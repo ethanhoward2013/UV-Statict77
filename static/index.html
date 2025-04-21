@@ -5,7 +5,7 @@
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
       <link rel="stylesheet" href="index.css">
       <script type="text/javascript" src="//counter.websiteout.net/js/7/10/5/0"></script>
-      <link rel="shortcut icon" type="image/jpg" href="~/"/>
+      <link rel="shortcut icon" type="image/jpg" href="~/">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -23,21 +23,30 @@
                // Add all other codes here
             ];
 
-            const codeInput = prompt("Enter your access code:");
-            
-            if (!validCodes.includes(codeInput)) {
-               alert("Access Denied: Invalid Code");
-               window.location.href = "about:blank"; // Block access
-            } else {
-               alert("Access Granted: Welcome!");
-            }
+            const form = document.querySelector("#access-form");
+            form.addEventListener("submit", (event) => {
+               event.preventDefault(); // Prevent form submission
+               const codeInput = document.querySelector("#access-code").value;
+
+               if (!validCodes.includes(codeInput)) {
+                  alert("Access Denied: Invalid Code");
+                  window.location.href = "about:blank"; // Block access
+               } else {
+                  alert("Access Granted: Welcome!");
+                  document.querySelector("#content").style.display = "block"; // Reveal content
+               }
+            });
          });
       </script>
-      <div id="content">
+      <div id="code-entry">
+         <form id="access-form" style="margin: 20px;">
+            <label for="access-code" style="font-size: 1.2em;">Enter your access code:</label><br>
+            <input id="access-code" type="text" style="padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; width: 300px;" required />
+            <button type="submit" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+         </form>
+      </div>
+      <div id="content" style="display: none;">
          <h1>Waffle Proxy <span style="color:red; font-weight:bold;">PAID</span></h1>
-         <button style="margin: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;" onclick="window.open('https://discord.gg/BwEnS96ewP', '_blank')">
-            Join Discord and Buy Paid
-         </button>
          <form id="uv-form">
             <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/> 
             <input id="uv-address" type="text" placeholder="Search DuckDuckGo or type an URL" class="form__input"/>
