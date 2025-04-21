@@ -11,16 +11,41 @@
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
    </head>
    <body>
+      <script>
+         document.addEventListener("DOMContentLoaded", () => {
+            const validCodes = [
+               "7LmzF@Ek!%KqXrA*3YPoV9^#",
+               "qP2z!Ey9#@rVXt$LKM&f8NW*",
+               "!x6N$@8mZqKTYF3wV^J#rLp2",
+               "WZ*eR#o!Y9kXqMV^Lp@872$F",
+               "^q@z6Vp*FRL8N#YXK$!moP23",
+               "!qK3v@R^$oXpWYFL*ZN#286p"
+               // Add all other codes here
+            ];
+
+            const codeInput = prompt("Enter your access code:");
+            
+            if (!validCodes.includes(codeInput)) {
+               alert("Access Denied: Invalid Code");
+               window.location.href = "about:blank"; // Block access
+            } else {
+               alert("Access Granted: Welcome!");
+            }
+         });
+      </script>
       <div id="content">
-         <h1>Waffle Proxy</h1>
+         <h1>Waffle Proxy <span style="color:red; font-weight:bold;">PAID</span></h1>
+         <button style="margin: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;" onclick="window.open('https://discord.gg/BwEnS96ewP', '_blank')">
+            Join Discord and Buy Paid
+         </button>
          <form id="uv-form">
             <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/> 
             <input id="uv-address" type="text" placeholder="Search DuckDuckGo or type an URL" class="form__input"/>
-          </form>
-          <div class="desc left-margin"> 
+         </form>
+         <div class="desc left-margin"> 
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
-          </div>
+         </div>
       </div>
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
