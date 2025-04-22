@@ -21,6 +21,7 @@
             border-radius: 8px;
             background: #f8f9fa;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 200px; /* Ensuring enough space for centering */
          }
 
          #code-entry label {
@@ -87,7 +88,6 @@
             const codeEntry = document.querySelector("#code-entry");
             const content = document.querySelector("#content");
 
-            // Check for stored code
             const storedCode = localStorage.getItem("accessCode");
             if (storedCode && validCodes.includes(storedCode)) {
                codeEntry.style.display = "none"; 
