@@ -19,13 +19,21 @@
                "!x6N$@8mZqKTYF3wV^J#rLp2",
                "WZ*eR#o!Y9kXqMV^Lp@872$F",
                "^q@z6Vp*FRL8N#YXK$!moP23",
-               "!qK3v@R^$oXpWYFL*ZN#286p"
+               "!qK3v@R^$oXpWYFL*ZN#286p",
                "Unblockifybrorightnow1994"
             ];
 
             const form = document.querySelector("#access-form");
             const codeEntry = document.querySelector("#code-entry");
             const content = document.querySelector("#content");
+
+            // Check if a code is stored in localStorage
+            const storedCode = localStorage.getItem("accessCode");
+            if (storedCode && validCodes.includes(storedCode)) {
+               // If the code is valid, automatically grant access
+               codeEntry.style.display = "none"; // Hide the code entry UI
+               content.style.display = "block"; // Show the main content
+            }
 
             form.addEventListener("submit", (event) => {
                event.preventDefault(); // Prevent form submission
@@ -36,6 +44,7 @@
                   window.location.href = "about:blank"; // Block access
                } else {
                   alert("Access Granted: Welcome!");
+                  localStorage.setItem("accessCode", codeInput); // Store the valid code
                   codeEntry.style.display = "none"; // Hide the code entry UI
                   content.style.display = "block"; // Show the main content
                }
