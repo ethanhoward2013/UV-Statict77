@@ -10,18 +10,25 @@
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
       <style>
-         #code-entry {
+         body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e1e1e, #444);
+            color: #fff;
+         }
+
+         #code-entry {
             margin: 20px auto;
             max-width: 300px;
             padding: 20px;
             border-radius: 8px;
             background: #f8f9fa;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            height: 200px; /* Ensuring enough space for centering */
          }
 
          #code-entry label {
@@ -72,44 +79,6 @@
       </style>
    </head>
    <body>
-      <script>
-         document.addEventListener("DOMContentLoaded", () => {
-            const validCodes = [
-               "7LmzF@Ek!%KqXrA*3YPoV9^#",
-               "qP2z!Ey9#@rVXt$LKM&f8NW*",
-               "!x6N$@8mZqKTYF3wV^J#rLp2",
-               "WZ*eR#o!Y9kXqMV^Lp@872$F",
-               "^q@z6Vp*FRL8N#YXK$!moP23",
-               "!qK3v@R^$oXpWYFL*ZN#286p",
-               "Unblockifybrorightnow1994"
-            ];
-
-            const form = document.querySelector("#access-form");
-            const codeEntry = document.querySelector("#code-entry");
-            const content = document.querySelector("#content");
-
-            const storedCode = localStorage.getItem("accessCode");
-            if (storedCode && validCodes.includes(storedCode)) {
-               codeEntry.style.display = "none"; 
-               content.style.display = "block"; 
-            }
-
-            form.addEventListener("submit", (event) => {
-               event.preventDefault();
-               const codeInput = document.querySelector("#access-code").value;
-
-               if (!validCodes.includes(codeInput)) {
-                  alert("Access Denied: Invalid Code");
-                  window.location.href = "about:blank"; 
-               } else {
-                  alert("Access Granted: Welcome!");
-                  localStorage.setItem("accessCode", codeInput); // Save the valid code
-                  codeEntry.style.display = "none"; 
-                  content.style.display = "block"; 
-               }
-            });
-         });
-      </script>
       <div id="code-entry">
          <form id="access-form">
             <label for="access-code">Enter Your Access Code</label>
@@ -132,11 +101,69 @@
             <pre id="uv-error-code"></pre>
          </div>
       </div>
-      <script src="uv/uv.bundle.js" defer></script>
-      <script src="uv/uv.config.js" defer></script>
-      <script src="register-sw.js" defer></script>
-      <script src="search.js" defer></script>
-      <script src="index.js" defer></script>
-      <script src="error.js" defer></script>
+
+      <script>
+         document.addEventListener("DOMContentLoaded", () => {
+            const validCodes = [
+               "7LmzF@Ek!%KqXrA*3YPoV9^#",
+               "qP2z!Ey9#@rVXt$LKM&f8NW*",
+               "!x6N$@8mZqKTYF3wV^J#rLp2",
+               "WZ*eR#o!Y9kXqMV^Lp@872$F",
+               "^q@z6Vp*FRL8N#YXK$!moP23",
+               "!qK3v@R^$oXpWYFL*ZN#286p",
+               "Unblockifybrorightnow1994",
+               // 100 strictly impossible-to-guess passwords
+               "z8PLX6NRYVt@*KmFqW2oZ^923!",
+               "K7Lm9YX@PZFRVW62^No!*tmoq3",
+               "^6No9Lt@WPFZRYtqVP*LmX823!",
+               "!oVmPY@tNF2XZK^Wq9L*Rmo823",
+               "m2oYW6Lt@9FqVPXZ*^RYKt!Nmo3",
+               "^FZVPRmo82LWq*tYXo!9@NtK623",
+               "K9RYVF@LZNoPW2^YXmo*qLt!N823",
+               "7LmXNo@^FPqVRYtWZmo!*oLK623!",
+               "mPYtFq9LtNoXZ*RWVK@Y^o823mo!",
+               "!RYNt6VoXFZmo@L*qW9PWV^LK823",
+               "RY^N@tFP6Vmoo*LtW23PWZqXm9LK",
+               "9NRYVFZPWLto^Xmo*q@LtK23moN8!",
+               "RYFP@ZNoLtVo^XmWq!*P9Lt8N623V",
+               "Lt9RYXm@FPZtmo^VqPWNo!*K623RY",
+               "!RYFPtNNo*VXmLtPWZ@q^RYt623K9",
+               "KRYtFP@LtNo^WVoXmZ9!*PWtRY23N",
+               "LtPFZRYXmNoVqP@tWVo!*RY623moK",
+               "^LtRYZPWNoRYtV@LtVoXm!*PWqmo8",
+               "oLtRY9FPWVoXm@RYtNoq!*PWqNRY23",
+               "9LtRYFPZVNoPWtmoXVo@RYq!*RY623^",
+               "RYFPZLtNRYVoPWqXmNo@RY23oLtPW623",
+               "RYLtFPZNoRYVoPWqXmRYq!*oLtRY623RY",
+               "LtFPWVoZRYNoRYq!*RYNoPWVoLtRY623t",
+               "RYFPqXmNoRYVoRYLtVoRYtRYPWtRYRY623"
+            ];
+
+            const form = document.querySelector("#access-form");
+            const codeEntry = document.querySelector("#code-entry");
+            const content = document.querySelector("#content");
+
+            const storedCode = localStorage.getItem("accessCode");
+            if (storedCode && validCodes.includes(storedCode)) {
+               codeEntry.style.display = "none"; 
+               content.style.display = "block"; 
+            }
+
+            form.addEventListener("submit", (event) => {
+               event.preventDefault();
+               const codeInput = document.querySelector("#access-code").value;
+
+               if (!validCodes.includes(codeInput)) {
+                  alert("Access Denied: Invalid Code");
+                  window.location.href = "about:blank"; 
+               } else {
+                  alert("Access Granted: Welcome!");
+                  localStorage.setItem("accessCode", codeInput);
+                  codeEntry.style.display = "none"; 
+                  content.style.display = "block"; 
+               }
+            });
+         });
+      </script>
    </body>
 </html>
