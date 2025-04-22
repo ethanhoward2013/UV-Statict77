@@ -1,54 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting...</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #89f7fe, #66a6ff);
-      color: #ffffff;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin: 0;
-    }
-    p {
-      font-size: 1.2em;
-    }
-    a {
-      color: #ffeb3b;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .redirect-box {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-  </style>
-  <script>
-    window.onload = function() {
-      window.location.href = "/static/"; // Replace with your desired URL
-    };
-  </script>
-</head>
-<body>
-  <div class="redirect-box">
-    <h1>Redirecting...</h1>
-    <p>If you are not redirected, <a href="/static/">click here</a>.</p>
-  </div>
-</body>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <link rel="stylesheet" href="index.css">
+      <script type="text/javascript" src="//counter.websiteout.net/js/7/10/5/0"></script>
+      <link rel="shortcut icon" type="image/jpg" href="~/">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+      <style>
+         body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e1e1e, #444);
+            color: #fff;
+         }
+
+         #code-entry {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 350px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+         }
+
+         #code-entry h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+         }
+
+         #access-code {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1.1em;
+            background: #2a2a2a;
+            color: #fff;
+            text-align: center;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3);
+         }
+
+         #access-code:focus {
+            outline: none;
+            border: 2px solid #007bff;
+         }
+
+         #access-form button {
+            padding: 12px 20px;
+            width: 100%;
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+         }
+
+         #access-form button:hover {
+            background-color: #218838;
+            transform: scale(1.03);
+         }
+
+         .discord-btn {
+            padding: 12px 20px;
+            width: 100%;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+         }
+
+         .discord-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.03);
+         }
+
+         #content {
+            display: none;
+            text-align: center;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="code-entry">
+         <h2>Enter Access Code</h2>
+         <form id="access-form">
+            <input id="access-code" type="text" placeholder="Access Code" required />
+            <button type="submit">Submit</button>
+         </form>
+         <button class="discord-btn" onclick="window.open('https://discord.gg/a3P5TT9WjK', '_blank')">
+            Join Discord
+         </button>
+      </div>
+
+      <div id="content">
+         <h1>Waffle Proxy <span style="color:red; font-weight:bold;">PAID</span></h1>
+         <form id="uv-form">
+            <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/> 
+            <input id="uv-address" type="text" placeholder="Search DuckDuckGo or type an URL" class="form__input"/>
+         </form>
+         <div class="desc left-margin"> 
+            <p id="uv-error"></p>
+            <pre id="uv-error-code"></pre>
+         </div>
+      </div>
+
+      <script>
+         document.addEventListener("DOMContentLoaded", () => {
+            const validCodes = [
+               "7LmzF@Ek!%KqXrA*3YPoV9^#",
+               "qP2z!Ey9#@rVXt$LKM&f8NW*",
+               "!x6N$@8mZqKTYF3wV^J#rLp2",
+               "WZ*eR#o!Y9kXqMV^Lp@872$F",
+               "^q@z6Vp*FRL8N#YXK$!moP23",
+               "!qK3v@R^$oXpWYFL*ZN#286p",
+               "Unblockifybrorightnow1994",
+               // 100 strictly impossible-to-guess passwords
+               "z8PLX6NRYVt@*KmFqW2oZ^923!",
+               "K7Lm9YX@PZFRVW62^No!*tmoq3",
+               "^6No9Lt@WPFZRYtqVP*LmX823!",
+               "!oVmPY@tNF2XZK^Wq9L*Rmo823",
+               "m2oYW6Lt@9FqVPXZ*^RYKt!Nmo3",
+               "^FZVPRmo82LWq*tYXo!9@NtK623",
+               "K9RYVF@LZNoPW2^YXmo*qLt!N823",
+               "7LmXNo@^FPqVRYtWZmo!*oLK623!",
+               "mPYtFq9LtNoXZ*RWVK@Y^o823mo!",
+               "!RYNt6VoXFZmo@L*qW9PWV^LK823",
+               "RY^N@tFP6Vmoo*LtW23PWZqXm9LK",
+               "9NRYVFZPWLto^Xmo*q@LtK23moN8!",
+               "RYFP@ZNoLtVo^XmWq!*P9Lt8N623V",
+               "Lt9RYXm@FPZtmo^VqPWNo!*K623RY",
+               "!RYFPtNNo*VXmLtPWZ@q^RYt623K9",
+               "KRYtFP@LtNo^WVoXmZ9!*PWtRY23N",
+               "LtPFZRYXmNoVqP@tWVo!*RY623moK",
+               "^LtRYZPWNoRYtV@LtVoXm!*PWqmo8",
+               "oLtRY9FPWVoXm@RYtNoq!*PWqNRY23",
+               "9LtRYFPZVNoPWtmoXVo@RYq!*RY623^",
+               "RYFPZLtNRYVoPWqXmNo@RY23oLtPW623",
+               "RYLtFPZNoRYVoPWqXmRYq!*oLtRY623RY",
+               "LtFPWVoZRYNoRYq!*RYNoPWVoLtRY623t",
+               "RYFPqXmNoRYVoRYLtVoRYtRYPWtRYRY623"
+            ];
+
+            const form = document.querySelector("#access-form");
+            const codeEntry = document.querySelector("#code-entry");
+            const content = document.querySelector("#content");
+
+            const storedCode = localStorage.getItem("accessCode");
+            if (storedCode && validCodes.includes(storedCode)) {
+               codeEntry.style.display = "none"; 
+               content.style.display = "block"; 
+            }
+
+            form.addEventListener("submit", (event) => {
+               event.preventDefault();
+               const codeInput = document.querySelector("#access-code").value;
+
+               if (!validCodes.includes(codeInput)) {
+                  alert("Access Denied: Invalid Code");
+                  window.location.href = "about:blank"; 
+               } else {
+                  alert("Access Granted: Welcome!");
+                  localStorage.setItem("accessCode", codeInput);
+                  codeEntry.style.display = "none"; 
+                  content.style.display = "block"; 
+               }
+            });
+         });
+      </script>
+   </body>
 </html>
