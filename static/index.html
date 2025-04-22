@@ -69,6 +69,19 @@
          #content {
             display: none;
          }
+
+         #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
+         }
       </style>
    </head>
    <body>
@@ -135,8 +148,18 @@
                   content.style.display = "block"; 
                }
             });
+
+            const footer = document.querySelector("#footer");
+            const updateTime = () => {
+               const now = new Date();
+               const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+               footer.textContent = now.toLocaleDateString('en-US', options);
+            };
+            updateTime();
+            setInterval(updateTime, 1000); // Update time every second
          });
       </script>
+
       <div id="code-entry">
          <form id="access-form">
             <label for="access-code">Enter Your Access Code</label>
@@ -159,6 +182,7 @@
             <pre id="uv-error-code"></pre>
          </div>
       </div>
+      <div id="footer"></div>
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
       <script src="register-sw.js" defer></script>
