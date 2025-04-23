@@ -5,6 +5,7 @@
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
       <link rel="stylesheet" href="index.css">
       <script type="text/javascript" src="//counter.websiteout.net/js/7/10/5/0"></script>
+      <link rel="shortcut icon" type="image/jpg" href="~/">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -14,39 +15,37 @@
          }
          h1 {
             font-family: 'Oswald', sans-serif;
-            margin-bottom: 20px;
          }
          #content {
             display: block;
             margin: 20px auto;
-            max-width: 1600px; /* Expanded container width */
+            max-width: 600px;
             text-align: center;
          }
-         #uv-form {
-            margin: 0 auto;
-            width: 100%;
-            display: flex;
-            justify-content: center; /* Centers the search bar */
-         }
          #uv-address {
-            width: 100%; /* Full width for the search bar */
-            max-width: 1600px; /* Maximum width expanded to 1600px */
-            padding: 14px; /* Comfortable padding for text input */
+            width: 100%;
+            padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 8px; /* Matches rounded corner style */
-            font-size: 1.2em; /* Large font size for readability */
+            border-radius: 8px;
+            font-size: 1em;
+            margin-bottom: 20px;
          }
          .discord-btn {
             margin-top: 20px;
-            display: inline-block;
+            display: inline-flex; /* Inline flex for logo and text alignment */
+            align-items: center; /* Vertically center the items */
+            gap: 10px; /* Space between logo and text */
             padding: 10px 20px;
             background-color: #7289da;
             color: white;
             font-size: 1em;
-            text-align: center;
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.2s ease, transform 0.2s ease;
+         }
+         .discord-btn img {
+            width: 20px; /* Adjust logo size */
+            height: 20px; /* Keeps the logo proportional */
          }
          .discord-btn:hover {
             background-color: #5b6eae;
@@ -90,8 +89,9 @@
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
          </div>
-         <!-- Join Discord Button -->
+         <!-- Join Discord Button with Logo -->
          <a href="https://discord.gg/a3P5TT9WjK" class="discord-btn" target="_blank">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/discord-2752210-2285027.png" alt="Discord Logo" />
             Join Discord
          </a>
       </div>
