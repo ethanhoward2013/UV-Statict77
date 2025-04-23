@@ -13,6 +13,17 @@
          #content {
             display: block; /* Ensures the content is always visible */
          }
+         #header {
+            display: flex; /* Aligns title and logo horizontally */
+            align-items: center; /* Centers items vertically */
+            justify-content: center; /* Centers the entire header */
+            margin-bottom: 20px; /* Adds spacing below the header */
+         }
+         #header img {
+            width: 50px; /* Adjusts logo size */
+            height: 50px;
+            margin-left: 10px; /* Adds spacing between the title and logo */
+         }
          #footer {
             position: fixed;
             bottom: 0;
@@ -63,7 +74,11 @@
       </script>
 
       <div id="content">
-         <h1>Waffle Proxy</h1>
+         <!-- Header with Waffle Proxy Name and Logo -->
+         <div id="header">
+            <h1>Waffle Proxy</h1>
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F5%2FCircle-Waffle-PNG-File.png&f=1&nofb=1&ipt=b40ba3e54dd79ca769b24bc9d5608349931b82e9cfea251f9da42952bafda0ab" alt="Waffle Logo" />
+         </div>
          <form id="uv-form">
             <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/> 
             <input id="uv-address" type="text" placeholder="Search DuckDuckGo or type an URL" class="form__input"/>
