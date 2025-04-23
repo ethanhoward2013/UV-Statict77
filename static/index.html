@@ -97,7 +97,6 @@
                "8NLz*moYXqK3PV9FR^@6Wo25#",
                "!PmZRYLtWqXF^82o@9K6Vo32L",
                "K9RYoZtVoW32FPqLm*^Wo@628N"
-               // Add as many codes as needed
             ];
 
             const form = document.querySelector("#access-form");
@@ -108,7 +107,7 @@
                event.preventDefault();
                const codeInput = document.querySelector("#access-code").value;
 
-               // Retrieve redeemed codes from localStorage (initialize if not found)
+               // Retrieve redeemed codes from localStorage
                const redeemedCodes = JSON.parse(localStorage.getItem("redeemedCodes")) || {};
 
                // Check if the code is valid
@@ -126,7 +125,7 @@
                }
 
                // Redeem the code
-               redeemedCodes[codeInput] = true; // Mark code as redeemed
+               redeemedCodes[codeInput] = true; // Mark the code as redeemed
                localStorage.setItem("redeemedCodes", JSON.stringify(redeemedCodes));
 
                // Grant access
