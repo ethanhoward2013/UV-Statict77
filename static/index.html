@@ -9,37 +9,35 @@
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
       <style>
-         #content {
-            display: block; /* Ensures the content is always visible */
-         }
-         #uv-form {
-            display: flex;
-            justify-content: center; /* Center-aligns the form */
-            margin-top: 20px; /* Adds spacing below the heading */
-         }
-         #uv-address {
-            width: 80%;
-            max-width: 400px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px; /* Matches the rounded corner style */
-            font-size: 1em;
-            text-align: left; /* Matches search box styling */
-         }
-         #footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #343a40;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 1em;
+         body {
             font-family: 'Open Sans', sans-serif;
          }
+         h1 {
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 20px;
+         }
+         #content {
+            display: block; /* Centers the content block */
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+         }
+         #uv-form {
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Centers the search bar */
+         }
+         #uv-address {
+            width: 100%; /* Ensures full width inside the container */
+            max-width: 600px; /* Large enough to comfortably fit text */
+            padding: 12px; /* Slightly larger padding for text space */
+            border: 1px solid #ccc;
+            border-radius: 8px; /* Matches original rounded corners */
+            font-size: 1.2em; /* Larger font size for better readability */
+         }
          .discord-btn {
-            margin-top: 20px;
+            margin-top: 20px; /* Space below the search bar */
             display: inline-block;
             padding: 10px 20px;
             background-color: #7289da;
@@ -53,6 +51,18 @@
          .discord-btn:hover {
             background-color: #5b6eae;
             transform: scale(1.05);
+         }
+         #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
          }
       </style>
    </head>
